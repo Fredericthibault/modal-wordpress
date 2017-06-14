@@ -1,25 +1,42 @@
-<div id="primary">
+<?php
+/**
+ * Template Name: À vous de voir
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Eleven
+ * @since Twenty Eleven 1.0
+ */
+
+get_header(); ?>
+
+		<div id="primary">
 			<div id="content" role="main">
 
 				<?php if( have_rows('galerie') ): ?>
 
 						<ul class="galeries">
 
-							<?php $i = 1; ?>
 
-						<?php while( have_rows('galerie') ): the_row(); 
+						<?php 
+                            
+                            $i = 1;
+                            
+                            while( have_rows('galerie') ): the_row(); 
 
 							// vars
-							$i++;
+                        
 							$image_apres = get_sub_field('image_apres');
 							$image_avant = get_sub_field('image_avant');
 							$content = get_sub_field('description-galerie');
 							$titre = get_sub_field('titre-galerie');
 							$id = $i;
+                            $i++;
 							
-							
-							
-
 							?>
 
 							<?php echo $id ?>
@@ -75,9 +92,11 @@
 
 						<?php endif; ?>
 
-
-
+                </ul>
 
 
 			</div><!-- #content -->
 		</div><!-- #primary -->
+
+
+<?php get_footer(); ?>
